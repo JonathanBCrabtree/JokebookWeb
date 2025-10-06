@@ -26,7 +26,7 @@ I used a json to sql converter (https://www.beekeeperstudio.io/tools/json-to-sql
 
 You should also create a user that can access the table, these credentials can be what ever you want but an example user can be found in `backend/config.js`.
 
-For the backend, you can run this in terminal from the project with `node server.js`. Make sure the database credentials are correct in `config.js`
+For the backend, you need to have npm (https://www.npmjs.com/) and nodejs (https://nodejs.org/en) installed, with those you can run `server.js` in terminal from the project with `node server.js`. Make sure the database credentials are correct in `config.js`
 
 Additionally ensure the host and port are same in `config.js` and the top line of the website javascript file `website/scripts/index.js` or else the website will be looking in the wrong place for your backend server.
 
