@@ -1,14 +1,4 @@
-$('document').ready(() => {
-    setNewJoke()
-})
-
-$('#joke-next').click(() => {
-    setNewJoke()
-});
-
-$('#joke-answer').click(() => {
-    answerJoke()
-});
+const jokeSourceUrl = "http://localhost:3000/randomjoke"
 
 let setNewJoke = async () => {
     let nextButton = $('#joke-next')
@@ -16,7 +6,9 @@ let setNewJoke = async () => {
     let answerButton = $('#joke-answer')
     let punchline = $('#punchline')
     let errorMsg = $('#error')
+    let book = $('#book')
 
+    book.prop("hidden", false);
     nextButton.prop('disabled', true);
     errorMsg.prop('hidden', true);
     setup.prop("hidden", false);
@@ -38,6 +30,8 @@ let setNewJoke = async () => {
     } else {
         errorMsg.prop('hidden', false);
         setup.prop("hidden", true);
+        answerButton.prop("hidden", true);
+        book.prop("hidden", true);
     }
 }
 
@@ -51,15 +45,14 @@ let getJokeFromServer = async () => {
 
     try {
         await $.ajax({
-            url: `http://localhost:3000`,
+            url: jokeSourceUrl,
             type: 'GET',
             dataType: 'json',
             success: (response) => {
-
                 result['success'] = true;
-                result['joke'] = response[0];
+                result['joke'] = response;
             },
-            error: (error) => {
+            error: () => {
                 result['success'] = false
             }
         });
@@ -70,3 +63,9 @@ let getJokeFromServer = async () => {
 
     return result;
 }
+
+$('document').ready(setNewJoke)
+
+$('#joke-next').click(setNewJoke);
+
+$('#joke-answer').click(answerJoke);

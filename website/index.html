@@ -11,15 +11,25 @@
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nerko+One&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 
     <link href="frameworks/fontawesome/css/all.min.css">
     <link href="frameworks/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
 </head>
 <body>
+<div class="d-flex w-100 flex-column align-items-center justify-content-center text-center">
+    <h1 class="roboto-mono-title">Welcome to Jokebook</h1>
+    <h2 class="roboto-mono-title">A little app that tells you jokes</h2>
+</div>
 
-<div class="d-flex w-100 vh-100 flex-column align-items-center justify-content-center text-center align-middle">
-    <i class="fa-solid fa-book"></i>
+<div class="d-flex w-100 vh-100 flex-column align-items-center justify-content-center text-center align-middle nerko-one-regular">
+    <div id="book">
+        <i class="fa-solid fa-book book"></i>
+    </div>
+
     <p id="error" hidden>Sorry! There was a problem displaying the joke. Please check your setup.</p>
     <p id="setup">Loading Joke...</p>
     <button id="joke-answer" class="btn btn-primary" type="button">Answer</button>
